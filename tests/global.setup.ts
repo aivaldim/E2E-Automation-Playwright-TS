@@ -1,5 +1,5 @@
-import { test as setup } from '@playwright/test';
+import { test as setup, type Page } from '@playwright/test';
 
-setup('Before Each', async ({ }) => {
-  console.log('Executing the @BeforeEach...');
+setup('Before All', async ({ page }) => {
+  console.log('Executing the @BeforeAll...');
 });

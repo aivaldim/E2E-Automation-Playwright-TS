@@ -18,38 +18,36 @@ export default defineConfig({
   reporter: 'html',
   timeout: 30000,
   use: {
-    baseURL: 'https://www.demoblaze.com/',
-    actionTimeout: 3000,
-    headless: true,
+    baseURL: 'https://www.demoblaze.com',
+    headless: false,
     viewport: { width: 1280, height: 720 },
     trace: 'on-first-retry',
     screenshot: 'only-on-failure'
   },
 
   projects: [
-    {name: 'BeforeEach',
+    {name: 'BeforeAll',
       testMatch: /global\.setup\.ts/,
-      teardown: 'AfterEach',
+      teardown: 'AfterAll',
     },
-    {name: 'AfterEach',
+    {name: 'AfterAll',
       testMatch: /global\.teardown\.ts/,
     },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      dependencies: ['BeforeEach']
+      dependencies: ['BeforeAll']
     },
-
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-      dependencies: ['BeforeEach']
+      dependencies: ['BeforeAll']
     },
 
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-      dependencies: ['BeforeEach']
+      dependencies: ['BeforeAll']
     },
   ]
 });
