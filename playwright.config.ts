@@ -27,27 +27,30 @@ export default defineConfig({
 
   projects: [
     {name: 'BeforeAll',
-      testMatch: /global\.setup\.ts/,
-      teardown: 'AfterAll',
+      testDir: './utils',
+      testMatch: 'global.setup.ts'
     },
     {name: 'AfterAll',
-      testMatch: /global\.teardown\.ts/,
+      testDir: './utils',
+      testMatch: 'global.teardown.ts'
     },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
-      dependencies: ['BeforeAll']
+      dependencies: ['BeforeAll'],
+      teardown: 'AfterAll'
     },
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
-      dependencies: ['BeforeAll']
+      dependencies: ['BeforeAll'],
+      teardown: 'AfterAll'
     },
-
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-      dependencies: ['BeforeAll']
+      dependencies: ['BeforeAll'],
+      teardown: 'AfterAll'
     },
   ]
 });
