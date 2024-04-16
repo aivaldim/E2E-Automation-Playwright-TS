@@ -31,4 +31,4 @@ jobs:
           subject: "These are my test running :'D"
           body: "<em>This is a notification from GitHub actions.</em>"
           type: "text/html"
-          attachment: "playwright-report/playwright-report.zip"
+          attachment: "playwright-report/"
