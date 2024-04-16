@@ -19,7 +19,7 @@ export default defineConfig({
   timeout: 10000,
   use: {
     baseURL: 'https://www.demoblaze.com',
-    headless: false,
+    headless: true,
     viewport: { width: 1280, height: 720 },
     trace: 'on-first-retry',
     screenshot: 'only-on-failure'
