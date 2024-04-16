@@ -8,6 +8,7 @@ type Fixtures = {
 export const test = base.extend<Fixtures>({
   pageFactory: async ({ page }, use) => {
     const pageFactory = new PageFactory(page);
+    await pageFactory.page.goto('/');
     await use(pageFactory);
   },
 });

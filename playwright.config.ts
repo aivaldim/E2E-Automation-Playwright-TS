@@ -38,7 +38,7 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
       dependencies: ['BeforeAll'],
-      teardown: 'AfterAll'
+      teardown: 'AfterAll',
     },
     {
       name: 'firefox',

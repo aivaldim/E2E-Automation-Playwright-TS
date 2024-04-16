@@ -14,11 +14,11 @@ export default class LogInPage {
     this.logInBtn = page.getByRole("button", { name: "Log in" });
   }
 
-  async enterUserCredentials() {
+  async enterUserCredentials( user : string, password : string ) {
     await this.userNameInput.click();
-    await this.userNameInput.fill("admin");
+    await this.userNameInput.fill(user);
     await this.passwordInput.click();
-    await this.passwordInput.fill("admin");
+    await this.passwordInput.fill(password);
   }
 
   async clickLogIn() {
