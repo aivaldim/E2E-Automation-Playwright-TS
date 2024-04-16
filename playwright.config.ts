@@ -21,7 +21,7 @@ export default defineConfig({
     baseURL: 'https://www.demoblaze.com',
     headless: true,
     viewport: { width: 1280, height: 720 },
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
     screenshot: 'only-on-failure'
   },
 

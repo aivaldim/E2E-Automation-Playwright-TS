@@ -8,7 +8,7 @@ export default class LandingPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.logInLink = page.getByRole('link', { name: 'Log in' });
+    this.logInLink = page.getByRole('link', { name: 'Log inn' });
     this.userNameLink = page.locator('#nameofuser');
   }
 
