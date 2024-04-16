@@ -19,16 +19,19 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+      - name: Compress directory
+        run: zip -r playwright-report.zip playwright-report
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - uses: cinotify/github-action@main
+      - name: Send email with attachment
+        uses: cinotify/github-action@main
         with:
           to: "agus.ivaldi.m@gmail.com"
-          subject: "These are my test running :'D"
-          body: "<em>This is a notification from GitHub actions.</em>"
-          type: "text/html"
-          attachment: "playwright-report.zip"
+          subject: "Playwright Test Results"
+          body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
+          type: "text/plain"
+          attachments: playwright-report.zip
