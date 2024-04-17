@@ -30,9 +30,6 @@ jobs:
         id: set-artifact-url
       - name: Use Artifact URL
         run: echo "Artifact URL is ${{ steps.set-artifact-url.outputs.artifact-url }}"
-      - name: Update email with artifact URL
-        run: |
-          sed -i "s|Please find attached the Playwright test results.|Please find attached the Playwright test results at ${ARTIFACT_URL}.|g" email_body.txt
         env:
           ARTIFACT_URL: ${{ steps.set-artifact-url.outputs.artifact-url }}
       - name: Send email with attachment
