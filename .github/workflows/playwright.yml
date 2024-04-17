@@ -25,17 +25,11 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - name: Set artifact URL
-        run: echo "::set-output name=artifact-url::${{ steps.upload-artifact.outputs.upload-artifact-path }}"
-        id: set-artifact-url
-      - name: Use Artifact URL
-        run: echo "Artifact URL is ${{ steps.set-artifact-url.outputs.artifact-url }}"
-        env:
-          ARTIFACT_URL: ${{ steps.set-artifact-url.outputs.artifact-url }}
-      - name: Send email with attachment
+      - name: Send email with report attached
         uses: cinotify/github-action@main
         with:
           to: "agus.ivaldi.m@gmail.com"
           subject: "Playwright Test Results"
-          body: "Hi there,\n\nPlease find attached the Playwright test results HERE: '${ARTIFACT_URL}\n\nBest regards,\nYour GitHub Actions"
+          body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
           type: "text/plain"
+          attachment: playwright-report/index.html
