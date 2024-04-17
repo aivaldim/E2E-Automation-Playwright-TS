@@ -19,11 +19,6 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-      - uses: actions/checkout@v2
-      - uses: vimtor/action-zip@v1.2
-        with:
-          files: playwright-report/
-          dest: report.zip
       - name: Send email with attachment
         uses: cinotify/github-action@main
         with:
@@ -31,7 +26,7 @@ jobs:
           subject: "Playwright Test Results"
           body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
           type: "text/plain"
-          attachments: report.zip
+          attachments: playwright-report/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
