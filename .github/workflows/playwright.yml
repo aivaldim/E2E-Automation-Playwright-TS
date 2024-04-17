@@ -19,6 +19,7 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+      - uses: actions/checkout@v2
       - uses: vimtor/action-zip@v1.2
         with:
           files: playwright-report/
@@ -37,4 +38,4 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      - uses: actions/checkout@v2
+      
