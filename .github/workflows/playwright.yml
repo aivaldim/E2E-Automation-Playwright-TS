@@ -34,4 +34,4 @@ jobs:
           subject: "Playwright Test Results"
           body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
           type: "text/plain"
-          attachments: playwright-report.zip
+          attachments: "playwright-report.zip"
