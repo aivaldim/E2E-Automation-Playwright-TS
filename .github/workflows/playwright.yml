@@ -26,7 +26,7 @@ jobs:
           subject: "Playwright Test Results"
           body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
           type: "text/plain"
-          attachments: playwright-report/
+          attachments: zip -r report.zip playwright-report/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
