@@ -19,18 +19,26 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-      - name: Send email with attachment
-        uses: cinotify/github-action@main
-        with:
-          to: "agus.ivaldi.m@gmail.com"
-          subject: "Playwright Test Results"
-          body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
-          type: "text/plain"
-          attachments: zip -r report.zip playwright-report/
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-      
+      - name: Set artifact URL
+        run: echo "::set-output name=artifact-url::${{ steps.upload-artifact.outputs.upload-artifact-path }}"
+        id: set-artifact-url
+      - name: Use Artifact URL
+        run: echo "Artifact URL is ${{ steps.set-artifact-url.outputs.artifact-url }}"
+      - name: Update email with artifact URL
+        run: |
+          sed -i "s|Please find attached the Playwright test results.|Please find attached the Playwright test results at ${ARTIFACT_URL}.|g" email_body.txt
+        env:
+          ARTIFACT_URL: ${{ steps.set-artifact-url.outputs.artifact-url }}
+      - name: Send email with attachment
+        uses: cinotify/github-action@main
+        with:
+          to: "agus.ivaldi.m@gmail.com"
+          subject: "Playwright Test Results"
+          body: "Hi there,\n\nPlease find attached the Playwright test results HERE: '${ARTIFACT_URL}\n\nBest regards,\nYour GitHub Actions"
+          type: "text/plain"
