@@ -30,3 +30,11 @@ Inside that directory, you can run several commands:
 
   npx playwright codegen
     Auto generate tests with Codegen.
+
+  Has been added a way to execute the tests not only using the original npx command, so see the following:
+  
+  | "scripts": {
+  |   "exec": "npx playwright test"
+  | }, 
+
+  Then, its needed to execute the command: "npm run exec"
