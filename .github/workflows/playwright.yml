@@ -25,6 +25,15 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-results
+          path: allure-results/
+          retention-days: 30
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r zip-allure-results.zip allure-results/
       - name: Send email with report attached
         uses: cinotify/github-action@main
         with:
@@ -32,4 +41,4 @@ jobs:
           subject: "Playwright Test Results"
           body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
           type: "text/plain"
-          attachment: "playwright-report/index.html"
+          attachment: zip-allure-results.zip

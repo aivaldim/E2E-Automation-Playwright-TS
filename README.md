@@ -11,6 +11,8 @@
 To install Playwright for the first time, run:
 
 ➡️ npm init playwright@latest
+➡️ npm i -D @playwright/test allure-playwright
+➡️ npm install --save-dev allure-commandline
 
 ## Commands
 Inside the project directory, you can use the following commands:
