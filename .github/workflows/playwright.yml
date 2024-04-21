@@ -58,8 +58,7 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - name: Zipping Allure report
-        uses: montudor/action-zip@v1
+      - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r zip-allure-results.zip allure-results/
       
