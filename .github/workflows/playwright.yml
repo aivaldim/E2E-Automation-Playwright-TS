@@ -1,9 +1,10 @@
 name: Playwright Tests
-on:
+on: 
+  workflow_dispatch:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
-    branches: [main, master]
+    branches: [main]
 jobs:
   test:
     timeout-minutes: 60
@@ -41,7 +42,7 @@ jobs:
       - name: Allure Report action from marketplace
         uses: simple-elf/allure-report-action@master
         if: always()
-          #id: allure-report
+        id: allure-report
         with:
           allure_results: allure-results
           gh_pages: gh-pages
@@ -57,7 +58,8 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - uses: montudor/action-zip@v1
+      - name: Zipping Allure report
+        uses: montudor/action-zip@v1
         with:
           args: zip -qq -r zip-allure-results.zip allure-results/
       
@@ -66,6 +68,6 @@ jobs:
         with:
           to: "agus.ivaldi.m@gmail.com"
           subject: "Playwright Test Results"
-          body: "Hi there,\n\nPlease find attached the Playwright test results.\n\nBest regards,\nYour GitHub Actions"
+          body: "Hi there,\n\nPlease find attached the Playwright test results.\nIf prefered, go to https://aivaldim.github.io/E2E-Automation-Playwright-TS/39/index.html in order to see the report online.\n\nIf there Best regards,\nYour GitHub Actions"
           type: "text/plain"
           attachment: zip-allure-results.zip
