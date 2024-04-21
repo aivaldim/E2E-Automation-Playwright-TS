@@ -1,6 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sun Apr 21 20:14:54 GMT 2024","Sun Apr 21 20:14:57 GMT 2024","2402","chromium","","","","","Successful log in",""
-"passed","Sun Apr 21 20:15:02 GMT 2024","Sun Apr 21 20:15:07 GMT 2024","4997","webkit","","","","","Successful log in",""
-"passed","Sun Apr 21 20:14:54 GMT 2024","Sun Apr 21 20:14:54 GMT 2024","355","BeforeAll","","","","","Before All",""
-"passed","Sun Apr 21 20:15:08 GMT 2024","Sun Apr 21 20:15:08 GMT 2024","15","AfterAll","","","","","After Each",""
-"passed","Sun Apr 21 20:14:57 GMT 2024","Sun Apr 21 20:15:01 GMT 2024","4027","firefox","","","","","Successful log in",""
