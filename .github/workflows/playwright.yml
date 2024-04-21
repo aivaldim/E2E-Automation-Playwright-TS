@@ -1,10 +1,10 @@
 name: Playwright Tests
 on: 
-  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 jobs:
   test:
     timeout-minutes: 60
@@ -67,4 +67,3 @@ jobs:
           body: "<p>Hi there,<br><br>Please find attached the Playwright test results.<br> \"<a href=\"https://aivaldim.github.io/E2E-Automation-Playwright-TS/\">E2E-Automation-Playwright-TS</a>\" in order to see the report online.<br><br>Best regards,<br>Your GitHub Actions</p>"
           type: "text/html"
 
-          
