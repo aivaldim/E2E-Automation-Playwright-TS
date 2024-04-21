@@ -1,4 +1,4 @@
-import { logInCreds, userDetails } from "../../tests-data/login-creds.json";
+import { logInCreds, userDetails } from "../../tests-data/testsdata.json";
 import { expect, test } from "../testBase";
 
 test("Successful log in", async ({ pageFactory }) => {
