@@ -59,10 +59,12 @@ jobs:
           PUBLISH_DIR: allure-history
 
       - uses: montudor/action-zip@v1
+        if: always()
         with:
           args: zip -qq -r zip-allure-results.zip allure-results/
       
       - name: Send email with report attached
+        if: always()
         uses: cinotify/github-action@main
         with:
           to: "agus.ivaldi.m@gmail.com"
