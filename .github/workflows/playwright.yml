@@ -69,6 +69,6 @@ jobs:
         with:
           to: "agus.ivaldi.m@gmail.com"
           subject: "Playwright Test Results"
-          body: "Hi there,\n\nPlease find attached the Playwright test results.\nIf prefered, go to https://aivaldim.github.io/E2E-Automation-Playwright-TS/39/index.html in order to see the report online.\n\nIf there Best regards,\nYour GitHub Actions"
-          type: "text/plain"
+          body: "<p>Hi there,<br><br>Please find attached the Playwright test results.<br> \"<a href=\"https://aivaldim.github.io/E2E-Automation-Playwright-TS/\">E2E-Automation-Playwright-TS</a>\" in order to see the report online.<br><br>Best regards,<br>Your GitHub Actions</p>"
+          type: "text/html"
           attachment: zip-allure-results.zip
