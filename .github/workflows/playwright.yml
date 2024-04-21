@@ -58,11 +58,6 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
 
-      - uses: montudor/action-zip@v1
-        if: always()
-        with:
-          args: zip -qq -r zip-allure-results.zip allure-results/
-      
       - name: Send email with report attached
         if: always()
         uses: cinotify/github-action@main
@@ -71,4 +66,3 @@ jobs:
           subject: "Playwright Test Results"
           body: "<p>Hi there,<br><br>Please find attached the Playwright test results.<br> \"<a href=\"https://aivaldim.github.io/E2E-Automation-Playwright-TS/\">E2E-Automation-Playwright-TS</a>\" in order to see the report online.<br><br>Best regards,<br>Your GitHub Actions</p>"
           type: "text/html"
-          attachment: zip-allure-results.zip
