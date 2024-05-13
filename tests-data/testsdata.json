@@ -1,7 +1,8 @@
 {
-  "logInCreds": { 
-    "user": "admin", 
-    "correct_password": "admin" },
+  "logInCreds": {
+    "user": "admin",
+    "correct_password": "admin"
+  },
   "userDetails": {
     "userName": "admin"
   }
